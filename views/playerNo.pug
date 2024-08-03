@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header 
+
+    main
+    #setPlayer
+        h4= quizname
+        hr
+        #block
+            form(action="/addPlayer", method="post")
+                #playerInput
+                    h1 Players in Game
+                    p Minimum 2 players
+                    p Maximum 4 players
+                    input(type="text", name="plyNo", id="playerNo" required)
+                button.btn(type="submit" name="done") DONE
+                button.btn#cancelBtn(type="submit" name="cancelBtn") CANCEL

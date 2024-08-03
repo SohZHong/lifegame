@@ -1,0 +1,30 @@
+extends admin_layout
+
+block content
+    #setQues
+        h4= quizname
+        hr
+        #block
+            form(action="/addQues", method="post")
+                #ques
+                    p Question #{session.questionCount}
+                    input(type="text", name="ques", id="quesInput")
+                #optionList
+                    .options
+                        label(for="op1") Correct Answer
+                        br
+                        input(type="text", name="ans1")
+                    .options
+                        label(for="op1") Wrong Answer
+                        br
+                        input(type="text", name="ans2")
+                    .options
+                        label(for="op1") Wrong Answer
+                        br
+                        input(type="text", name="ans3")
+                    .options
+                        label(for="op1") Wrong Answer
+                        br
+                        input(type="text", name="ans4")
+                button.btn(type="submit" name="done") DONE
+                button.btn#cancelBtn(type="submit" name="cancelBtn") CANCEL

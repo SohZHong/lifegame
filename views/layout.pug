@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    title Game Details
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap")
+  body
+    header
+      h1 Game Details
+      p Game ID: #{gameId}
+      button#homeBtn Home
+      button#endGame End Game
+      - var player1 = null
+      - var player2 = null
+      - var player3 = null
+      - var player4 = null
+
+      each player in players
+        if player.playerSlot == "Player 1"
+          - player1 = player
+        else if player.playerSlot == "Player 2"
+          - player2 = player
+        else if player.playerSlot == "Player 3"
+          - player3 = player
+        else if player.playerSlot == "Player 4"
+          - player4 = player
+
+      each player in players
+        if player1
+          p #{player1.playerSlot} - ID: #{player1.playerId}
+          #p1.player
+            a(href="/modifyMoney/#{player1.playerId}") #{player1.playerName}
+            div Total Money: #{player1.totalMoney}
+            button(onclick=`window.location.href='/modifyMoney/${player1.playerId}'`) Add
+        if player2
+          p #{player2.playerSlot} - ID: #{player2.playerId}
+          #p2.player
+            a(href="/modifyMoney/#{player2.playerId}") #{player2.playerName}
+            div Total Money: #{player2.totalMoney}
+            button(onclick=`window.location.href='/modifyMoney/${player2.playerId}'`) Add
+        if player3
+          p #{player3.playerSlot} - ID: #{player3.playerId}
+          #p3.player
+            a(href="/modifyMoney/#{player3.playerId}") #{player3.playerName}
+            div Total Money: #{player3.totalMoney}
+            button(onclick=`window.location.href='/modifyMoney/${player3.playerId}'`) Add
+        if player4
+          p #{player4.playerSlot} - ID: #{player4.playerId}
+          #p4.player
+            a(href="/modifyMoney/#{player4.playerId}") #{player4.playerName}
+            div Total Money: #{player4.totalMoney}
+            button(onclick=`window.location.href='/modifyMoney/${player4.playerId}'`) Add
+
+    main
+    block content
+
+    script.
+      document.getElementById('endGame').addEventListener('click', function() {
+        window.location.href = '/endGame/#{gameId}';
+      });

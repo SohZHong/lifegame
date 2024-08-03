@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1 #{question.question}
+    form(action="/submitAnswer", method="post")
+      input(type="hidden", name="question_id", value=question.question_id)
+      each answer in answers
+        div
+          input(type="radio", name="isCorrect", value=answer.isCorrect, id=answer.text)
+          label(for=answer.text) #{answer.text}
+      button(type="submit") Confirm

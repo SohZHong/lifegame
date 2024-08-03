@@ -1,0 +1,99 @@
+body {
+  padding: 50px;
+  font-family: "Press Start 2P", system-ui;
+}
+
+
+a {
+  color: #00B7FF;
+}
+
+/* startbtn {
+
+} */
+
+.delBtn , .modifyBtn{
+  width: 20px;
+  height: 20px;
+}
+.delBtn:hover, .modifyBtn:hover{
+  transform: scale(1.2);
+}
+
+.btnBlock {
+  position: relative;
+}
+
+.theButtons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+}
+
+.theButtons button{
+  border: none;
+  background-color: #00000000;
+}
+
+.ans {
+  overflow: hidden;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ans p {
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+}
+.correctiveIcon img{
+  width: 30px;
+  height: 30px;
+}
+
+.player {
+  
+  max-width: 200px;
+  max-height: 80px;
+  background-color: #ffdd47;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: #240e09;
+}
+
+.player:hover {
+  background-color: #ebc107;
+  color: black;
+}
+
+#p1 {
+  top: 30px;
+  left: 0%;
+  margin: 10px;
+}
+
+#p2 {
+  top: 30px;
+  right: 0%;
+  margin: 10px;
+}
+
+#p3 {
+  bottom: 0%;
+  left: 0%;
+  margin: 10px;
+}
+
+#p4 {
+  bottom: 0%;
+  right: 0%;
+  margin: 10px;
+}
+
+#endBtn {
+  top: 0%;
+  right: 0%;
+  margin: 10px; 
+}
