@@ -18,6 +18,6 @@ html
                     p Minimum 2 players
                     p Maximum 4 players
                     input(type="number", name="plyNo", id="playerNo" min="2" max="4" required)
-                
-                button.btn(type="submit" name="done" class="button") DONE
-                button.btn#cancelBtn(type="submit" name="cancelBtn" class="button") CANCEL
+
+                button.button(onclick="window.location.href='/homePage'") CANCEL
+                button.button(type="submit" name="done") DONE

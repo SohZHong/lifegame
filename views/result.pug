@@ -1,12 +1,14 @@
 extends layout
 block content
-  script(type="text/javascript").
-    document.addEventListener("DOMContentLoaded", function() {
-      if (#{rewardMoney} > 0) {
-        alert("Congratulations! You have completed the quiz correctly.");
-      }
-    });
-  h1 Quiz Results
-  if rewardMoney > 0
-    p You have successfully completed the quiz.
-    a(href="/dice") Continue
+  script(type="text/javascript")
+  .block
+    h1 CONGRATULATIONS
+    .flip-card
+        .flip-card-inner
+            .flip-card-front
+                img.star(src="../images/star.png" alt="Front")
+            .flip-card-back
+                img.star(src="../images/star.png" alt="Back")
+
+    h3 You have successfully completed the quiz.
+    button.button(onclick="window.location.href='/dice'") Continue

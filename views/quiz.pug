@@ -1,11 +1,13 @@
 extends layout
 
 block content
+  .block#quiz
     h1 #{question.question}
     form(action="/submitAnswer", method="post")
       input(type="hidden", name="question_id", value=question.question_id)
-      each answer in answers
-        div
-          input(type="radio", name="isCorrect", value=answer.isCorrect, id=answer.text)
-          label(for=answer.text) #{answer.text}
-      button(type="submit") Confirm
+      .answer-grid
+        each answer in answers
+          .answer-item
+            input(type="radio", name="isCorrect", value=answer.isCorrect, id=answer.text)
+            label(for=answer.text) #{answer.text}
+      button.button(type="submit") Confirm

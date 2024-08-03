@@ -24,21 +24,22 @@ html
           .options
             label(for="p1") Player 1
             br
-            input(type="text", name="ply1", id="ply1" disabled)
+            input(type="text", name="ply1", id="ply1" disabled required)
           .options
             label(for="p2") Player 2
             br
-            input(type="text", name="ply2", id="ply2" disabled)
+            input(type="text", name="ply2", id="ply2" disabled required)
           .options
             label(for="p3") Player 3
             br
-            input(type="text", name="ply3", id="ply3" disabled)
+            input(type="text", name="ply3", id="ply3" disabled required)
           .options
             label(for="p4") Player 4
             br
-            input(type="text", name="ply4", id="ply4" disabled)
-        
-        button.btn(type="submit" name="done") DONE
-        button.btn#cancelBtn(type="submit" name="cancelBtn") CANCEL
+            input(type="text", name="ply4", id="ply4" disabled required)
+            
+        button.button(onclick="window.location.href='/homePage'") CANCEL
+        button.button(type="submit" name="done") DONE
+
     script.
       enableInputs(!{playersCount})

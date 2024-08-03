@@ -1,0 +1,11 @@
+body {
+    padding: 50px;
+    font-family: "Press Start 2P", system-ui;
+    background-image: url('../images/evening.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1; 
+    padding: 0%;
+    margin: 0%;
+  }

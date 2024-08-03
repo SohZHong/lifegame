@@ -1,9 +1,22 @@
 extends layout
-link(rel='stylesheet', href='/stylesheets/dice.css')
+
 block content
+    link(rel='stylesheet', href='/stylesheets/dice.css')
     .container
         h1 Dice Roller
-        button#rollButton Roll Dice
-        #result
-            img#diceImage(src="/images/dice0.png" alt="Dice Image")
+        #dice
+            .face.front
+                img(src="../images/dice1.png" alt="Dice Face 1")
+            .face.back
+                img(src="../images/dice2.png" alt="Dice Face 2")
+            .face.left
+                img(src="../images/dice3.png" alt="Dice Face 3")
+            .face.right
+                img(src="../images/dice4.png" alt="Dice Face 4")
+            .face.top
+                img(src="../images/dice5.png" alt="Dice Face 5")
+            .face.bottom
+                img(src="../images/dice6.png" alt="Dice Face 6")
+        button.button#rollButton Roll Dice
 
+    script(src="javascripts/dice.js")

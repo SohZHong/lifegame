@@ -81,7 +81,7 @@ a {
   /* background-color: #ffdd47; */
 }
 
-button#homeBtn, button#endGame, .button , button, .player{
+button#homeBtn, button#endGame, .button, .player{
   background-color: #ffdd47;
   border: 2px solid black;
   border-radius: 5px;
@@ -91,15 +91,6 @@ button#homeBtn, button#endGame, .button , button, .player{
   font-family: "Press Start 2P", system-ui;
 }
 
-
-#homeBtn {
-  /* No additional styles needed here */
-}
-
-#endGame {
-  /* No additional styles needed here */
-}
-
 .button:hover, .player:hover {
   background-color: #ebc107;
   color: black;
@@ -107,14 +98,14 @@ button#homeBtn, button#endGame, .button , button, .player{
 
 #p1 {
   position: absolute;
-  top: 70px; /* Adjusted to be below the menu */
+  top: 70px;
   left: 0;
   margin: 10px;
 }
 
 #p2 {
   position: absolute;
-  top: 70px; /* Adjusted to be below the menu */
+  top: 70px;
   right: 0;
   margin: 10px;
 }
@@ -154,7 +145,7 @@ a {
   color: black;
 }
 
-input, .button , button{
+input, .button{
   /* min-height: 30px;
   min-width: 100px; */
   max-width: 300px;
@@ -164,7 +155,84 @@ input, .button , button{
   
 }
 
-button#homeBtn, button#endGame {
+.button {
+  height: 50px;
+}
+
+/* button#homeBtn, button#endGame {
   max-width: 150px;
   height: 35px;
+} */
+
+.dollar{
+  width: 30px;
+  height: 30px;
+  background-color: none;
+}
+
+.home {
+  width: 30px;
+  height: 30px;
+}
+
+#quiz {
+  max-width: 80%;
+}
+
+.answer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 2fr); /* 2 columns of equal width */
+  gap: 2rem; /* Space between grid items */
+}
+
+.answer-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Space between radio button and label */
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  animation: flip 1.2s linear infinite;
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.flip-card-inner {
+  animation: flip 1.2s linear infinite forwards;
+}
+
+
+.star {
+  max-width: 100px;
+  max-height: 100px;
 }

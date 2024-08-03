@@ -9,7 +9,7 @@ const mysql = require('mysql2');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const session = require('express-session');
-// Session config
+
 app.use(session({ secret: 'todoapp', resave: true, saveUninitialized: true }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,25 +31,14 @@ db.connect((err) => {
 });
 
 
-const qRoutes = require('./routes/viewQuestion')(db);
+
 const diceRoute = require('./routes/dice');
-
-
-app.use('/', qRoutes);
 app.use('/', diceRoute);
-
 
 // const Routes = require('./routes/');
 // app.use( Routes);
-// const pNameRoutes = require('./routes/playerName')(db);
-// app.use(pNameRoutes);
-// const quizRoutes = require('./routes/quiz');
-// app.use('/quiz', quizRoutes(db)); // Pass the `db` object to the route handler
 const quizRoutes = require('./routes/quiz');
-app.use('/quiz', quizRoutes(db));
-
-// const quizRoutes = require('./routes/quiz')(db);
-// app.use(quizRoutes);
+app.use(quizRoutes(db));
 const moneyRoutes = require('./routes/modifyMoney')(db);
 app.use( moneyRoutes);
 const addQRoutes = require('./routes/addQuestion')(db);
@@ -67,9 +56,12 @@ app.get('/homePage', (req, res) => {
 app.get('/playerNo', (req, res) => {
   res.render('playerNo');
 });
-// app.get('/playerName', (req, res) => {
-//   res.render('playerName');
-// });
+app.get('/test', (req, res) => {
+  res.render('test');
+});
+app.get('/viewQuestion', (req, res) => {
+  res.render('viewQuestion');
+});
 app.get('/result', (req, res) => {
   res.render('result');
 });
@@ -79,6 +71,10 @@ app.get('/endGame', (req, res) => {
 app.get('/startQuiz', (req, res) => {
   res.render('startQuiz');
 });
+app.get('/dice', (req, res) => {
+  res.render('dice');
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
