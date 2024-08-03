@@ -2,53 +2,57 @@ doctype html
 html
   head
     title Game Details
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap")
+    link(rel='stylesheet', href='/stylesheets/style.css')
   body
     header
-      h1 Game Details
-      p Game ID: #{gameId}
-      button#homeBtn Home
-      button#endGame End Game
+      .menu
+        button#homeBtn Home
+        button#endGame End Game
+      //- h1 Game Details
+      //- p Game ID: #{gameId}
+
       - var player1 = null
       - var player2 = null
       - var player3 = null
       - var player4 = null
 
-      //- each player in players
-      //-   if player.playerSlot == "Player 1"
-      //-     - player1 = player
-      //-   else if player.playerSlot == "Player 2"
-      //-     - player2 = player
-      //-   else if player.playerSlot == "Player 3"
-      //-     - player3 = player
-      //-   else if player.playerSlot == "Player 4"
-      //-     - player4 = player
+      - if (players)
+        each player in players
+          if player.playerSlot == "Player 1"
+            - player1 = player
+          else if player.playerSlot == "Player 2"
+            - player2 = player
+          else if player.playerSlot == "Player 3"
+            - player3 = player
+          else if player.playerSlot == "Player 4"
+            - player4 = player
 
-      //- each player in players
-      //-   if player1
-      //-     p #{player1.playerSlot} - ID: #{player1.playerId}
-      //-     #p1.player
-      //-       a(href="/modifyMoney/#{player1.playerId}") #{player1.playerName}
-      //-       div Total Money: #{player1.totalMoney}
-      //-       button(onclick=`window.location.href='/modifyMoney/${player1.playerId}'`) Add
-      //-   if player2
-      //-     p #{player2.playerSlot} - ID: #{player2.playerId}
-      //-     #p2.player
-      //-       a(href="/modifyMoney/#{player2.playerId}") #{player2.playerName}
-      //-       div Total Money: #{player2.totalMoney}
-      //-       button(onclick=`window.location.href='/modifyMoney/${player2.playerId}'`) Add
-      //-   if player3
-      //-     p #{player3.playerSlot} - ID: #{player3.playerId}
-      //-     #p3.player
-      //-       a(href="/modifyMoney/#{player3.playerId}") #{player3.playerName}
-      //-       div Total Money: #{player3.totalMoney}
-      //-       button(onclick=`window.location.href='/modifyMoney/${player3.playerId}'`) Add
-      //-   if player4
-      //-     p #{player4.playerSlot} - ID: #{player4.playerId}
-      //-     #p4.player
-      //-       a(href="/modifyMoney/#{player4.playerId}") #{player4.playerName}
-      //-       div Total Money: #{player4.totalMoney}
-      //-       button(onclick=`window.location.href='/modifyMoney/${player4.playerId}'`) Add
+        if player1
+          //- p #{player1.playerSlot} - ID: #{player1.playerId}
+          #p1
+            .player #{player1.playerName}
+            div Total Money: #{player1.totalMoney}
+            button(onclick=`window.location.href='/modifyMoney/${player1.playerId}'`) Add
+        if player2
+          //- p #{player2.playerSlot} - ID: #{player2.playerId}
+          #p2
+            .player  #{player2.playerName}
+            div Total Money: #{player2.totalMoney} 
+            button(onclick=`window.location.href='/modifyMoney/${player2.playerId}'`) Add
+        if player3
+          //- p #{player3.playerSlot} - ID: #{player3.playerId}
+          #p3
+            .player #{player3.playerName}
+            div(style="color:white;") Total Money: #{player3.totalMoney}
+            button(onclick=`window.location.href='/modifyMoney/${player3.playerId}'`) Add
+        if player4
+          //- p #{player4.playerSlot} - ID: #{player4.playerId}
+          #p4
+            .player #{player4.playerName}
+            div(style="color:white;") Total Money: #{player4.totalMoney}
+            button(onclick=`window.location.href='/modifyMoney/${player4.playerId}'`) Add
 
     main
     block content
@@ -56,4 +60,7 @@ html
     script.
       document.getElementById('endGame').addEventListener('click', function() {
         window.location.href = '/endGame/#{gameId}';
+      });
+      document.getElementById('homeBtn').addEventListener('click', function() {
+        window.location.href = '/homePage';
       });

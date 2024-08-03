@@ -10,11 +10,11 @@ function shuffle(array) {
 }
 
 module.exports = (db) => {
-  router.post('/startQuiz', (req, res) => {
+  router.get('/startQuiz', (req, res) => {
     const query = 'SELECT * FROM Question_Bank ORDER BY RAND()';
     db.query(query, (err, results) => {
       if (err) throw err;
-      req.session.questions = results;
+      req.session.question = results;
       req.session.currentQuestionIndex = 0;
       req.session.answers = [];
       res.redirect('/quiz');
@@ -23,11 +23,11 @@ module.exports = (db) => {
   
   
   router.get('/quiz', (req, res) => {
-    if (req.session.currentQuestionIndex >= req.session.questions.length) {
+    if (req.session.currentQuestionIndex >= req.session.question.length) {
       return res.redirect('/result');
     }
   
-    let question = req.session.questions[req.session.currentQuestionIndex];
+    let question = req.session.question[req.session.currentQuestionIndex];
   
     const answers = shuffle([
       { text: question.correct_ans, isCorrect: true },
@@ -52,7 +52,7 @@ module.exports = (db) => {
   });
   
   router.get('/', (req, res) => {
-    const allCorrect = req.session.answers.length === req.session.questions.length && 
+    const allCorrect = req.session.answers.length === req.session.question.length && 
                         req.session.answers.every(answer => answer.isCorrect);
   
     res.render('result', { rewardMoney: allCorrect ? 1000 : 0 });

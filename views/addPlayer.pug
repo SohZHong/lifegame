@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    title Add Players
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script.
+      function enableInputs(playerCount) {
+        for (let i = 1; i <= 4; i++) {
+          const input = document.getElementById('ply' + i);
+          if (i <= playerCount) {
+            input.disabled = false;
+          } else {
+            input.disabled = true;
+          }
+        }
+      }
+  body
+    .block
+      form(action="/submitPlayers", method="post")
+        h1 Please Insert Player Name
+        #playerInput
+          .options
+            label(for="p1") Player 1
+            br
+            input(type="text", name="ply1", id="ply1" disabled)
+          .options
+            label(for="p2") Player 2
+            br
+            input(type="text", name="ply2", id="ply2" disabled)
+          .options
+            label(for="p3") Player 3
+            br
+            input(type="text", name="ply3", id="ply3" disabled)
+          .options
+            label(for="p4") Player 4
+            br
+            input(type="text", name="ply4", id="ply4" disabled)
+        
+        button.btn(type="submit" name="done") DONE
+        button.btn#cancelBtn(type="submit" name="cancelBtn") CANCEL
+    script.
+      enableInputs(!{playersCount})

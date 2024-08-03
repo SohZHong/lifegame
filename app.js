@@ -9,6 +9,8 @@ const mysql = require('mysql2');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); 
 
 const db = mysql.createConnection({
   host: 'localhost',
@@ -25,21 +27,26 @@ db.connect((err) => {
   }
 });
 
+
 const qRoutes = require('./routes/viewQuestion')(db);
 const diceRoute = require('./routes/dice');
-
 
 
 app.use('/', qRoutes);
 app.use('/', diceRoute);
 
 
-const Routes = require('./routes/');
-app.use( Routes);
+// const Routes = require('./routes/');
+// app.use( Routes);
 // const pNameRoutes = require('./routes/playerName')(db);
 // app.use(pNameRoutes);
-const quizRoutes = require('./routes/quiz')(db);
-app.use(quizRoutes);
+// const quizRoutes = require('./routes/quiz');
+// app.use('/quiz', quizRoutes(db)); // Pass the `db` object to the route handler
+const quizRoutes = require('./routes/quiz');
+app.use('/quiz', quizRoutes(db));
+
+// const quizRoutes = require('./routes/quiz')(db);
+// app.use(quizRoutes);
 const moneyRoutes = require('./routes/modifyMoney')(db);
 app.use( moneyRoutes);
 const addQRoutes = require('./routes/addQuestion')(db);
@@ -48,7 +55,8 @@ const editQRoutes = require('./routes/editQuestion')(db);
 app.use( editQRoutes);
 const viewQRoutes = require('./routes/viewQuestion')(db);
 app.use( viewQRoutes);
-
+const addPlayerRoutes = require('./routes/addPlayer')(db);
+app.use('/', addPlayerRoutes);
 
 app.get('/homePage', (req, res) => {
   res.render('homePage');

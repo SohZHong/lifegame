@@ -1,6 +1,13 @@
 body {
   padding: 50px;
   font-family: "Press Start 2P", system-ui;
+  background-image: url('../images/pixelbg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Keeps the background stationary */
+  z-index: -1; 
+  padding: 0%;
+  margin: 0%;
 }
 
 
@@ -54,46 +61,110 @@ a {
 }
 
 .player {
-  
-  max-width: 200px;
-  max-height: 80px;
   background-color: #ffdd47;
   border: 2px solid black;
   border-radius: 5px;
   color: #240e09;
+  text-align: center;
+  /* margin: auto; */
 }
 
-.player:hover {
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  box-sizing: border-box;
+  /* background-color: #ffdd47; */
+}
+
+button#homeBtn, button#endGame, .button , button, .player{
+  background-color: #ffdd47;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: #240e09;
+  padding: 10px;
+  margin: 0;
+  font-family: "Press Start 2P", system-ui;
+}
+
+
+#homeBtn {
+  /* No additional styles needed here */
+}
+
+#endGame {
+  /* No additional styles needed here */
+}
+
+.button:hover, .player:hover {
   background-color: #ebc107;
   color: black;
 }
 
 #p1 {
-  top: 30px;
-  left: 0%;
+  position: absolute;
+  top: 70px; /* Adjusted to be below the menu */
+  left: 0;
   margin: 10px;
 }
 
 #p2 {
-  top: 30px;
-  right: 0%;
+  position: absolute;
+  top: 70px; /* Adjusted to be below the menu */
+  right: 0;
   margin: 10px;
 }
 
 #p3 {
-  bottom: 0%;
-  left: 0%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   margin: 10px;
 }
 
 #p4 {
-  bottom: 0%;
-  right: 0%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   margin: 10px;
 }
 
-#endBtn {
+
+/* #endBtn {
   top: 0%;
   right: 0%;
   margin: 10px; 
+} */
+
+.block {
+  text-align: center;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+input, .button , button{
+  /* min-height: 30px;
+  min-width: 100px; */
+  max-width: 300px;
+  height: 30px;
+  width: 100%;
+  margin: 10px;
+  
+}
+
+button#homeBtn, button#endGame {
+  max-width: 150px;
+  height: 35px;
 }

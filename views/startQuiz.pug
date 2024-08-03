@@ -1,5 +1,7 @@
 extends layout
 
 block content
-    form(action="/startQuiz", method="post")
-        button(type="submit") Start Quiz
+    .block
+        //- a(href="/quiz") Start Quiz
+        form(action="/startQuiz", method="post")
+            button(type="submit") Start Quiz
