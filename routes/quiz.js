@@ -10,7 +10,7 @@ function shuffle(array) {
 }
 
 module.exports = (db) => {
-  router.get('/startQuiz', (req, res) => {
+  router.post('/startQuiz', (req, res) => {
     const query = 'SELECT * FROM Question_Bank ORDER BY RAND()';
     db.query(query, (err, results) => {
       if (err) throw err;

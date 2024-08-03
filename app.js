@@ -8,6 +8,9 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const session = require('express-session');
+// Session config
+app.use(session({ secret: 'todoapp', resave: true, saveUninitialized: true }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); 

@@ -1,12 +1,12 @@
 extends layout
-    script(type="text/javascript").
-      document.addEventListener("DOMContentLoaded", function() {
-        if (#{rewardMoney} > 0) {
-          alert("Congratulations! You have completed the quiz correctly.");
-        }
-      });
 block content
-    h1 Quiz Results
-    if rewardMoney > 0
-      p You have successfully completed the quiz.
-      a(href="/dice") Continue
+  script(type="text/javascript").
+    document.addEventListener("DOMContentLoaded", function() {
+      if (#{rewardMoney} > 0) {
+        alert("Congratulations! You have completed the quiz correctly.");
+      }
+    });
+  h1 Quiz Results
+  if rewardMoney > 0
+    p You have successfully completed the quiz.
+    a(href="/dice") Continue
