@@ -3,9 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const app = express();
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+
 
 const db = mysql.createConnection({
   host: 'localhost',
@@ -31,17 +34,17 @@ app.use('/', qRoutes);
 app.use('/', diceRoute);
 
 
-const Routes = require('./routes/')(db);
+const Routes = require('./routes/');
 app.use( Routes);
-const pNameRoutes = require('./routes/playerName')(db);
-app.use(pNameRoutes);
+// const pNameRoutes = require('./routes/playerName')(db);
+// app.use(pNameRoutes);
 const quizRoutes = require('./routes/quiz')(db);
 app.use(quizRoutes);
 const moneyRoutes = require('./routes/modifyMoney')(db);
 app.use( moneyRoutes);
 const addQRoutes = require('./routes/addQuestion')(db);
 app.use( addQRoutes);
-const editQRoutes = require('./routes/editQ')(db);
+const editQRoutes = require('./routes/editQuestion')(db);
 app.use( editQRoutes);
 const viewQRoutes = require('./routes/viewQuestion')(db);
 app.use( viewQRoutes);
@@ -65,14 +68,6 @@ app.get('/endGame', (req, res) => {
 app.get('/startQuiz', (req, res) => {
   res.render('startQuiz');
 });
-
-
-
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
