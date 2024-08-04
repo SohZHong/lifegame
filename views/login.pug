@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body 
+        .login-container
+            h2 Login
+            p(style="color: red;") #{error}
+            form(action='/login' method='post')
+                label(for='user_name') Name
+                input#username(type='text' name='user_name')
+                label(for='user_password') Password
+                input#password(type='password' name='user_password')
+                button(type='submit') Login

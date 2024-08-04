@@ -10,7 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const session = require('express-session');
 
-app.use(session({ secret: 'todoapp', resave: true, saveUninitialized: true }));
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); 
@@ -30,11 +30,21 @@ db.connect((err) => {
   }
 });
 
+// const session = require('express-session');
+app.use(session({
+secret: 'lifegame',
+resave: true,
+saveUninitialized: true
+}));
 
+app.use(session({ secret: 'lifegame', resave: true, saveUninitialized: true }));
 
+const viewQRoutes = require('./routes/viewQuestion')(db, checkLoggedIn);
+app.use( viewQRoutes);
 const diceRoute = require('./routes/dice');
 app.use('/', diceRoute);
-
+const loginRoutes = require('./routes/login');
+app.use(loginRoutes);
 // const Routes = require('./routes/');
 // app.use( Routes);
 const quizRoutes = require('./routes/quiz');
@@ -45,8 +55,8 @@ const addQRoutes = require('./routes/addQuestion')(db);
 app.use( addQRoutes);
 const editQRoutes = require('./routes/editQuestion')(db);
 app.use( editQRoutes);
-const viewQRoutes = require('./routes/viewQuestion')(db);
-app.use( viewQRoutes);
+
+
 const addPlayerRoutes = require('./routes/addPlayer')(db);
 app.use('/', addPlayerRoutes);
 
@@ -107,5 +117,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+function checkLoggedIn(req, res, next) {
+  if (req.session.loggedin) {
+    next();
+  } else {
+    req.session.error = 'Please Login!';
+    res.redirect('/login');
+  }
+}
 
 module.exports = app;

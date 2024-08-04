@@ -4,7 +4,7 @@ body {
   background-image: url('../images/pixelbg.jpeg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Keeps the background stationary */
+  background-attachment: fixed;
   z-index: -1; 
   padding: 0%;
   margin: 0%;
@@ -17,7 +17,6 @@ body {
   border-radius: 5px;
   color: #240e09;
   text-align: center;
-  /* margin: auto; */
 }
 
 .menu {
@@ -29,10 +28,9 @@ body {
   justify-content: space-between;
   padding: 5px;
   box-sizing: border-box;
-  /* background-color: #ffdd47; */
 }
 
-button#homeBtn, button#endGame, .button, .player{
+button#homeBtn, button#endGame, .button, .player, #loginBtn{
   background-color: #ffdd47;
   border: 2px solid black;
   border-radius: 5px;
@@ -40,6 +38,12 @@ button#homeBtn, button#endGame, .button, .player{
   padding: 10px;
   margin: 0;
   font-family: "Press Start 2P", system-ui;
+}
+
+#loginBtn {
+  position: fixed;
+  right: 0%;
+  margin: 10px;
 }
 
 .button:hover, .player:hover {
@@ -121,7 +125,7 @@ input, .button{
   background-color: none;
 }
 
-.home {
+.home , #login{
   width: 30px;
   height: 30px;
 }
