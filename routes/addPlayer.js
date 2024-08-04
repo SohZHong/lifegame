@@ -55,11 +55,10 @@ module.exports = (db) => {
               return res.send(`Error creating wallets: ${err.message}`);
             }
   
-            // Map player IDs to their respective slots
             const playerSlotData = playerIds.map((id, index) => ({
               playerId: id,
               playerName: playerData[index].player_name,
-              totalMoney: 2000, // Assuming initial money is 0, adjust if needed
+              totalMoney: 2000,
               playerSlot: `Player ${index + 1}`
             }));
   

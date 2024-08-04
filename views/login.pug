@@ -3,7 +3,9 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap")
+        link(rel='stylesheet', href='/stylesheets/login.css')
+        title Log In
     body 
         .login-container
             h2 Login
@@ -13,4 +15,5 @@ html(lang="en")
                 input#username(type='text' name='user_name')
                 label(for='user_password') Password
                 input#password(type='password' name='user_password')
-                button(type='submit') Login
+                button#login.button(type='submit') LOGIN
+                button#cancel.button(onclick="window.location.href='/homePage'") CANCEL

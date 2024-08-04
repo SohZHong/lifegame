@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (db, checkLoggedIn) => {
+  // module.exports = (db) => {
   router.post('/deleteQuiz', (req, res) => {
     const question_id = req.body.deleteQuiz;
     const delete_query = 'DELETE FROM Question_Bank WHERE question_id = ?';

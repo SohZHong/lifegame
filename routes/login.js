@@ -45,7 +45,7 @@ module.exports = (db) => {
                 if (err) {
                     return next(err);
                 } else {
-                    return res.redirect('/login');
+                    return res.redirect('/homePage');
                 }
             });
         }

@@ -43,8 +43,10 @@ const viewQRoutes = require('./routes/viewQuestion')(db, checkLoggedIn);
 app.use( viewQRoutes);
 const diceRoute = require('./routes/dice');
 app.use('/', diceRoute);
+
 const loginRoutes = require('./routes/login');
 app.use(loginRoutes);
+
 // const Routes = require('./routes/');
 // app.use( Routes);
 const quizRoutes = require('./routes/quiz');
