@@ -1,17 +1,18 @@
 extends layout
 
 block content
-      h1 Modify Money
-      p Player ID: #{playerId}
-      div Total Amount: #{totalMoney}
+  h1 Modify Money
+  p Player ID: #{playerId}
+  div Total Amount: #{totalMoney}
 
-      form(action="/updateMoney", method="post")
-        input(type="hidden", name="playerId", value="#{playerId}")
-        label(for="amount") Amount:
-        input(type="number", id="amount", name="amount" min="0")
-        .button
-          button(type="submit" name="operation" value="add") Add
-          button(type="submit" name="operation" value="subtract") Minus
-          button(type="submit" name="operation" value="complete") Complete
+  form(action="/updateMoney", method="post")
+    input(type="hidden", name="playerId", value="#{playerId}")
+    label(for="amount") Amount:
+    input(type="number", id="amount", name="amount" min="0")
+    .button
+      button(type="submit" name="operation" value="add") Add
+      button(type="submit" name="operation" value="subtract") Minus
+      button(type="submit" name="operation" value="complete") Complete
 
-    .player a(href="/") Back
+  .player
+    a(href="/") Back

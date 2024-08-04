@@ -53,10 +53,14 @@ module.exports = (db) => {
   });
 
   router.get('/', (req, res) => {
-    const allCorrect = req.session.answers.length === req.session.question.length && 
-                        req.session.answers.every(answer => answer.isCorrect);
+    if (req.session.answers) {
+      const allCorrect = req.session.answers.length === req.session.question.length && 
+      req.session.answers.every(answer => answer.isCorrect);
 
-    res.render('result', { rewardMoney: allCorrect ? 1000 : 0 });
+      res.render('result', { rewardMoney: allCorrect ? 1000 : 0 });
+    } else {
+      res.redirect('homePage');
+    }
   });
 
   return router;

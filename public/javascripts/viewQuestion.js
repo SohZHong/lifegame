@@ -18,19 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderQuestions(questions) {
     const container = document.getElementById('questionsContainer');
     container.innerHTML = questions.map((question, index) => `
-      <div class="qBlock">
+      <div key=${index + "qBlock"} class="qBlock">
         <h3>Question ${index + 1}</h3>
         <div class="btnBlock">
           <div class="theButtons">
-            <button onclick="deleteQuestion('${question.question_id}')">
+            <button onclick="deleteQuestion(${question.question_id})">
               <img src="../../images/bin.png" alt="" class="delBtn">
             </button>
-            <button onclick="editQuestion('${question.question_id}')">
+            <button onclick="editQuestion(${question.question_id})">
               <img class="modifyBtn" src="../../images/pencil.png" alt="">
             </button>
           </div>
         </div>
-        <div class="quesBlock">
+        <div key=${index + "quesBlock"} class="quesBlock">
           <p>${question.question}</p>
           <div class="ans">
             <table>
@@ -87,6 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   function editQuestion(question_id) {
-    window.location.href = `editQuestion.php?questionid=${question_id}&quizname=${quizname}`;
+    window.location.href = `/editQuestion?questionid=${question_id}`;
   }
   
