@@ -1,84 +1,95 @@
-.star, #close, #trophy{
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Press Start 2P", system-ui;
+    background-image: url('../images/pixelbg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
+}
+
+.home {
+    width: 30px;
+    height: 30px;
+}
+
+button#homeBtn, .button {
+    background-color: #ffdd47;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: #240e09;
+    padding: 10px;
+    font-family: "Press Start 2P", system-ui;
+}
+
+.star, #close, #trophy {
     max-width: 100px;
     max-height: 100px;
-  }
+}
 
+/* Base styles for flip elements */
 .flip {
     background-color: transparent;
-    width: 200px;
-    height: 200px;
-    perspective: 1000px; /* Ensure perspective for 3D effect */
-    position: absolute; /* Absolute positioning for correct placement */
-  }
-  
-  .flipinner {
+    width: 70px;
+    height: 70px;
+    perspective: 1000px;
+    position: absolute;
+}
+
+.flipinner {
     position: relative;
     width: 100%;
     height: 100%;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    animation: flip 1.2s linear infinite; /* Animation */
-  }
-  
-  .flipfront, .flipback {
+    animation: flip 1.2s linear infinite;
+}
+
+.flipfront, .flipback {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-  }
-  
-  .flipback {
+}
+
+.flipback {
     transform: rotateY(180deg);
-  }
-  
-  @keyframes flip {
+}
+
+@keyframes flip {
     0% {
-      transform: rotateY(0deg);
+        transform: rotateY(0deg);
     }
     100% {
-      transform: rotateY(360deg);
+        transform: rotateY(360deg);
     }
-  }
-  
-  /* Positioning for star and heart images */
-  #star1, #star2, #star3, #heart1, #heart2, #heart3 {
-    max-width: 70px;
-    max-height: 70px;
-    position: absolute; /* Ensure correct stacking and positioning */
-  }
-  
-  #star1 { top: 10%; left: 10%; }
-  #star2 { top: 20%; left: 50%; }
-  #star3 { top: 30%; right: 10%; }
-  
-  #heart1 { bottom: 10%; left: 20%; }
-  #heart2 { bottom: 20%; right: 30%; }
-  #heart3 { top: 10%; left: 70%; }
-  
-  #winnerContainer {
+}
+
+#winnerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     margin: auto;
-    display: grid;
-    place-items: center;
-    align-content: center;
     min-height: 100vh;
-    position: relative; /* Ensure correct stacking context */
-    z-index: 2; /* Ensure it's above other elements */
-  }
-  
-  .mainContainer {
+    position: relative;
+    z-index: 2;
+}
+
+.mainContainer {
     margin: auto;
     display: grid;
     place-items: center;
-    align-content: center;
     min-height: 100vh;
-    position: relative; /* Ensure proper stacking context for child elements */
-  }
+    position: relative;
+}
 
-/* Position the flip elements */
-.flip:nth-child(1) { top: 10%; left: 10%; }
-.flip:nth-child(2) { top: 20%; left: 30%; }
-.flip:nth-child(3) { top: 30%; left: 50%; }
-.flip:nth-child(4) { top: 40%; left: 70%; }
-.flip:nth-child(5) { top: 50%; left: 90%; }
-.flip:nth-child(6) { top: 60%; left: 10%; }
+/* Positioning for star and heart images */
+#star1, #star2, #star3, #heart1, #heart2, #heart3 {
+    max-width: 70px;
+    max-height: 70px;
+    position: absolute;
+}
+
