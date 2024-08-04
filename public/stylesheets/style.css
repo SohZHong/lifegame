@@ -10,56 +10,6 @@ body {
   margin: 0%;
 }
 
-
-a {
-  color: #00B7FF;
-}
-
-/* startbtn {
-
-} */
-
-.delBtn , .modifyBtn{
-  width: 20px;
-  height: 20px;
-}
-.delBtn:hover, .modifyBtn:hover{
-  transform: scale(1.2);
-}
-
-.btnBlock {
-  position: relative;
-}
-
-.theButtons {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 10px;
-}
-
-.theButtons button{
-  border: none;
-  background-color: #00000000;
-}
-
-.ans {
-  overflow: hidden;
-  padding-left: 50px;
-  display: flex;
-  flex-direction: column;
-}
-
-.ans p {
-  width: 50%;
-  float: left;
-  box-sizing: border-box;
-}
-.correctiveIcon img{
-  width: 30px;
-  height: 30px;
-}
-
 .player {
   background-color: #ffdd47;
   border: 2px solid black;

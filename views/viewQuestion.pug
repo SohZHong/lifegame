@@ -2,14 +2,24 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/admin.css')
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap")
   body
     header
-      h1 Welcome to Admin Page 
-      ul 
-        li: a(href='/adminHomePage', id='homebtn') Home
+      br 
+      br
+      h1 Welcome to Questions Page 
+      br
+      #buttonContainer 
+        button.button(onclick="window.location.href='/adminHome'") Home
+        form(action="/logout", method="post")
+              button.button(type="submit") Log Out
+
+      button.button#newQ(onclick="window.location.href='/addQuestion'") New Question
 
     main
       #questionsContainer
-      script(src="../scripts/viewQuestion.js")
+
+    
+
+    script(src="javascripts/viewQuestion.js")

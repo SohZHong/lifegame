@@ -62,6 +62,9 @@ app.get('/test', (req, res) => {
 app.get('/viewQuestion', (req, res) => {
   res.render('viewQuestion');
 });
+app.get('/addQuestion', (req, res) => {
+  res.render('addQuestion');
+});
 app.get('/result', (req, res) => {
   res.render('result');
 });
