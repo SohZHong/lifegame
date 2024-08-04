@@ -8,6 +8,6 @@ block content
       .answer-grid
         each answer in answers
           .answer-item
-            input(type="radio", name="isCorrect", value=answer.isCorrect, id=answer.text)
+            input(type="radio", name="isCorrect", value=answer.isCorrect ? 'true' : 'false', id=answer.text)
             label(for=answer.text) #{answer.text}
       button.button(type="submit") Confirm

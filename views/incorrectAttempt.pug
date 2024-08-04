@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    .block 
+        h1 Incorrect Attempt
+        .flip-card
+            img#close(src="../images/close.png", alt="")
+        p Unfortunately, your answer was incorrect. Please try again.
+        button.button(onclick="window.location.href='/startQuiz'") Continue

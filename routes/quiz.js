@@ -11,24 +11,21 @@ function shuffle(array) {
 
 module.exports = (db) => {
   router.post('/startQuiz', (req, res) => {
-    const query = 'SELECT * FROM Question_Bank ORDER BY RAND()';
+    const query = 'SELECT * FROM Question_Bank ORDER BY RAND() LIMIT 1'; // Fetch only one random question
     db.query(query, (err, results) => {
       if (err) throw err;
-      req.session.question = results;
-      req.session.currentQuestionIndex = 0;
+      req.session.question = results[0]; // Store the single question
       req.session.answers = [];
       res.redirect('/quiz');
-
     });
   });
 
-
   router.get('/quiz', (req, res) => {
-    if (req.session.currentQuestionIndex >= req.session.question.length) {
-      return res.redirect('/result');
+    if (!req.session.question) {
+      return res.redirect('/startQuiz');
     }
 
-    let question = req.session.question[req.session.currentQuestionIndex];
+    let question = req.session.question;
 
     const answers = shuffle([
       { text: question.correct_ans, isCorrect: true },
@@ -42,25 +39,26 @@ module.exports = (db) => {
 
   router.post('/submitAnswer', (req, res) => {
     const isCorrect = req.body.isCorrect === 'true';
-    const question_id = req.body.question_id;
+    console.log(`Submitted answer isCorrect: ${isCorrect}`); 
 
     if (isCorrect) {
-      req.session.answers.push({ question_id: question_id, isCorrect: isCorrect });
-      req.session.currentQuestionIndex++;
+      req.session.answers.push({ isCorrect: isCorrect });
+      req.session.question = null;
+      return res.redirect('/result');
+    } else {
+      req.session.question = null;
+      return res.redirect('/incorrectAttempt');
     }
-
-    res.redirect('/quiz');
   });
 
-  router.get('/', (req, res) => {
-    if (req.session.answers) {
-      const allCorrect = req.session.answers.length === req.session.question.length && 
-      req.session.answers.every(answer => answer.isCorrect);
+  router.get('/incorrectAttempt', (req, res) => {
+    res.render('incorrectAttempt'); 
+  });
 
-      res.render('result', { rewardMoney: allCorrect ? 1000 : 0 });
-    } else {
-      res.redirect('homePage');
-    }
+  router.get('/result', (req, res) => {
+    const isCorrectAttempt = req.session.answers.length === 1 && req.session.answers[0].isCorrect;
+    console.log(`Result page: isCorrectAttempt = ${isCorrectAttempt}`);
+    res.render('result', { isCorrect: isCorrectAttempt });
   });
 
   return router;

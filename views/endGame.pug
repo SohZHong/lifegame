@@ -1,6 +1,58 @@
-extends layout 
-
-block content
-    h1 Congratulations!
-    p Congratulations to #{winnerName} (Player ID: #{winnerId}) for having the highest amount of money: #{totalMoney}!
-    a(href="/homePage") Home
+doctype html
+html
+  head
+    title Game Details
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/animation.css')
+  body
+    header
+        .menu
+            button#homeBtn
+            img.home(src="../images/home.png")
+    main
+        .mainContainer
+            .flip(style='top: 10%; left: 10%;')
+            .flipinner
+                .flipfront
+                img#star1(src="../images/star.png" alt="")
+                .flipback
+                img#star1(src="../images/star.png" alt="")
+            .flip(style='top: 20%; left: 30%;')
+            .flipinner
+                .flipfront
+                img#star2(src="../images/star.png" alt="")
+                .flipback
+                img#star2(src="../images/star.png" alt="")
+            .flip(style='top: 30%; left: 50%;')
+            .flipinner
+                .flipfront
+                img#star3(src="../images/star.png" alt="")
+                .flipback
+                img#star3(src="../images/star.png" alt="")
+            .flip(style='top: 40%; left: 70%;')
+            .flipinner
+                .flipfront
+                img#heart1(src="../images/heart.png" alt="")
+                .flipback
+                img#heart1(src="../images/heart.png" alt="")
+            .flip(style='top: 50%; left: 90%;')
+            .flipinner
+                .flipfront
+                img#heart2(src="../images/heart.png" alt="")
+                .flipback
+                img#heart2(src="../images/heart.png" alt="")
+            .flip(style='top: 60%; left: 10%;')
+            .flipinner
+                .flipfront
+                img#heart3(src="../images/heart.png" alt="")
+                .flipback
+                img#heart3(src="../images/heart.png" alt="")
+            
+            #winnerContainer
+            h1 Congratulations!
+            img#trophy(src="../images/trophy.png", alt="")
+            p The winner is #{winnerName} !
+            p For having the highest amount of money: #{totalMoney}!
+            a(href="/homePage") Home
