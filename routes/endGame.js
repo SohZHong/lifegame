@@ -37,7 +37,7 @@ module.exports = (db) => {
         return res.status(404).send('Player not found');
       }
       const totalMoney = results[0].total_money;
-      res.render('modifyMoney', { playerId: playerId, totalMoney: totalMoney });
+      res.render('modifyMoney', { hide: true, playerId: playerId, totalMoney: totalMoney });
     });
   });
   
@@ -88,6 +88,8 @@ module.exports = (db) => {
         winnerId: winner.player_id,
         totalMoney: winner.total_money
       });
+      // End Session
+      req.session.playerData = null;
     });
   });
   

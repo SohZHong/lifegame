@@ -30,7 +30,6 @@ db.connect((err) => {
   }
 });
 
-// const session = require('express-session');
 app.use(session({
 secret: 'lifegame',
 resave: true,
@@ -38,6 +37,12 @@ saveUninitialized: true
 }));
 
 app.use(session({ secret: 'lifegame', resave: true, saveUninitialized: true }));
+
+// Retrieve player data
+app.use((req, res, next) => {
+  res.locals.playerData = req.session.playerData || []; // Make session data available to all views
+  next();
+});
 
 const viewQRoutes = require('./routes/viewQuestion')(db, checkLoggedIn);
 app.use( viewQRoutes);

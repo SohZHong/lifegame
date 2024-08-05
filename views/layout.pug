@@ -19,8 +19,8 @@ html
       - var player3 = null
       - var player4 = null
 
-      - if (players)
-        each player in players
+      - if (playerData && !hide)
+        each player in playerData
           if player.playerSlot == "Player 1"
             - player1 = player
           else if player.playerSlot == "Player 2"
@@ -30,34 +30,34 @@ html
           else if player.playerSlot == "Player 4"
             - player4 = player
 
-        if player1
-          //- p #{player1.playerSlot} - ID: #{player1.playerId}
-          #p1
-            .player #{player1.playerName}
-            div Total Money: #{player1.totalMoney}
-            button(onclick=`window.location.href='/modifyMoney/${player1.playerId}'`)
-              img(src='../images/dollar.png', alt='updateWallet' class="dollar")
-        if player2
-          //- p #{player2.playerSlot} - ID: #{player2.playerId}
-          #p2
-            .player  #{player2.playerName}
-            div Total Money: #{player2.totalMoney} 
-            button(onclick=`window.location.href='/modifyMoney/${player2.playerId}'`)
-              img(src='../images/dollar.png', alt='updateWallet' class="dollar")
-        if player3
-          //- p #{player3.playerSlot} - ID: #{player3.playerId}
-          #p3
-            .player #{player3.playerName}
-            div(style="color:white;") Total Money: #{player3.totalMoney}
-            button(onclick=`window.location.href='/modifyMoney/${player3.playerId}'`)
-              img(src='../images/dollar.png', alt='updateWallet' class="dollar")
-        if player4
-          //- p #{player4.playerSlot} - ID: #{player4.playerId}
-          #p4
-            .player #{player4.playerName}
-            div(style="color:white;") Total Money: #{player4.totalMoney}
-            button(onclick=`window.location.href='/modifyMoney/${player4.playerId}'`) 
-              img(src='../images/dollar.png', alt='updateWallet' class="dollar")
+      if player1
+        //- p #{player1.playerSlot} - ID: #{player1.playerId}
+        #p1
+          .player #{player1.playerName}
+          div Total Money: #{player1.totalMoney}
+          button(onclick=`window.location.href='/modifyMoney/${player1.playerId}'`)
+            img(src='../images/dollar.png', alt='updateWallet' class="dollar")
+      if player2
+        //- p #{player2.playerSlot} - ID: #{player2.playerId}
+        #p2
+          .player  #{player2.playerName}
+          div Total Money: #{player2.totalMoney} 
+          button(onclick=`window.location.href='/modifyMoney/${player2.playerId}'`)
+            img(src='../images/dollar.png', alt='updateWallet' class="dollar")
+      if player3
+        //- p #{player3.playerSlot} - ID: #{player3.playerId}
+        #p3
+          .player #{player3.playerName}
+          div(style="color:white;") Total Money: #{player3.totalMoney}
+          button(onclick=`window.location.href='/modifyMoney/${player3.playerId}'`)
+            img(src='../images/dollar.png', alt='updateWallet' class="dollar")
+      if player4
+        //- p #{player4.playerSlot} - ID: #{player4.playerId}
+        #p4
+          .player #{player4.playerName}
+          div(style="color:white;") Total Money: #{player4.totalMoney}
+          button(onclick=`window.location.href='/modifyMoney/${player4.playerId}'`) 
+            img(src='../images/dollar.png', alt='updateWallet' class="dollar")
 
     main
     block content
