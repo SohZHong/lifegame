@@ -12,8 +12,13 @@ html(lang="en")
             p(style="color: red;") #{error}
             form(action='/login' method='post')
                 label(for='user_name') Name
+                br
                 input#username(type='text' name='user_name')
+                br
                 label(for='user_password') Password
+                br
                 input#password(type='password' name='user_password')
+                br
                 button#login.button(type='submit') LOGIN
+                br
                 button#cancel.button(onclick="window.location.href='/homePage'") CANCEL

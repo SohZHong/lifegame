@@ -8,6 +8,7 @@ module.exports = (db) => {
     
     const playerCount = parseInt(req.body.plyNo, 10);
     if (playerCount >= 2 && playerCount <= 4) {
+      req.session.playerCount = playerCount;
       res.render('addPlayer', { playersCount: playerCount });
     } else {
       res.send('Please enter a valid number of players (2-4).');

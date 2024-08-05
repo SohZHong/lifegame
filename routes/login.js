@@ -38,7 +38,7 @@ module.exports = (db) => {
         }
     });
 
-    router.get('/logout', (req, res) => {
+    router.post('/logOUT', (req, res) => {
         if (req.session) {
             // delete session object
             req.session.destroy(function (err) {

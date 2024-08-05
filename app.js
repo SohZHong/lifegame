@@ -51,6 +51,8 @@ app.use('/', diceRoute);
 
 const loginRoutes = require('./routes/login')(db);
 app.use('/', loginRoutes);
+// const layoutRoutes = require('./routes/layout')(db);
+// app.use('/', layoutRoutes);
 
 // const Routes = require('./routes/');
 // app.use( Routes);
@@ -72,6 +74,9 @@ app.get('/homePage', (req, res) => {
 });
 app.get('/playerNo', (req, res) => {
   res.render('playerNo');
+});
+app.get('/logout', (req, res) => {
+  res.render('logout');
 });
 app.get('/test', (req, res) => {
   res.render('test');

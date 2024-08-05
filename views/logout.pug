@@ -11,6 +11,6 @@ html(lang="en")
             h2 LOG OUT
             p(style="color: red;") #{error} 
             h2 Are you confirm to log out?
-            form(action='/logOUT' method='GET')
+            form(action='/logOUT' method='POST')
                 button.button(type='submit') YES
-                button.button(onclick="window.location.href='/viewQuestion'") NO
+            button.button(onclick="window.location.href='/viewQuestion'") NO

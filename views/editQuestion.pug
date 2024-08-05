@@ -10,10 +10,6 @@ html
       br
       h1 Edit Questions Page 
       br
-      #buttonContainer 
-        button.button(onclick="window.location.href='/adminHome'") Home
-        form(action="/logout", method="post")
-              button.button(type="submit") Log Out
 
       button.button#newQ(onclick="window.location.href='/viewQuestion'") Back
 
@@ -44,5 +40,4 @@ html
                             label(for="ans4") Wrong Answer
                             br
                             input(type="text", name="ans4" required)
-                    button.btn(type="submit" name="done") DONE
-                    button.btn#cancelBtn(type="submit" name="cancelBtn") CANCEL
+                    button.button(type="submit" name="done") DONE
