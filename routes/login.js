@@ -22,7 +22,7 @@ module.exports = (db) => {
                     req.session.user_id = results[0].id;
                     // Assign user_name from the DB to session
                     req.session.user_name = results[0].admin_name;
-                    res.redirect('/todolist');
+                    res.redirect('/viewQuestion');
                 } else {
                     res.render('login', {
                         error: 'Incorrect Name and/or Password!'

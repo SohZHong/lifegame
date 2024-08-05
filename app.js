@@ -44,13 +44,13 @@ app.use( viewQRoutes);
 const diceRoute = require('./routes/dice');
 app.use('/', diceRoute);
 
-const loginRoutes = require('./routes/login');
-app.use(loginRoutes);
+const loginRoutes = require('./routes/login')(db);
+app.use('/', loginRoutes);
 
 // const Routes = require('./routes/');
 // app.use( Routes);
-const quizRoutes = require('./routes/quiz');
-app.use(quizRoutes(db));
+const quizRoutes = require('./routes/quiz')(db);
+app.use(quizRoutes);
 const moneyRoutes = require('./routes/modifyMoney')(db);
 app.use( moneyRoutes);
 const addQRoutes = require('./routes/addQuestion')(db);
