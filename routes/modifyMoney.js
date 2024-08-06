@@ -5,8 +5,9 @@ module.exports = (db) => {
   const updateSessionData = (req, playerId, newAmount) => {
     if (!req.session.playerData) return;
     req.session.playerData = req.session.playerData.map(player => {
-      if (player.playerId === playerId) {
+      if (player.playerId == playerId) {
         player.totalMoney = newAmount;
+        console.log(playerId);
       }
       return player;
     });
