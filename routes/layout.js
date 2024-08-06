@@ -6,7 +6,6 @@ module.exports = (db) => {
     if (!req.session.gameId) {
       return res.status(400).send('No game session found.');
     }
-
     // Query to fetch wallet data for the current game
     const query = `
       SELECT p.player_name AS playerName, w.total_money AS totalMoney, 

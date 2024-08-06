@@ -49,7 +49,7 @@ module.exports = (db) => {
             if (err) {
               return res.send(`Error inserting game: ${err.message}`);
             }
-    
+            const gameId = results.insertId;
             const walletQuery = `INSERT INTO Wallet (player_id, total_money) VALUES ${playerIds.map(() => '(?, 2000)').join(',')}`;
             const walletValues = playerIds.flatMap(id => [id]);
     
@@ -67,6 +67,7 @@ module.exports = (db) => {
 
               // Assinging Session to prevent duplicate operations
               req.session.playerData = playerSlotData;
+              req.session.gameId = gameId;
               res.render('startQuiz');
             });
           });

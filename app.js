@@ -60,6 +60,8 @@ const quizRoutes = require('./routes/quiz')(db);
 app.use(quizRoutes);
 const moneyRoutes = require('./routes/modifyMoney')(db);
 app.use( moneyRoutes);
+const endGameRoutes = require('./routes/endGame')(db);
+app.use( endGameRoutes);
 const addQRoutes = require('./routes/addQuestion')(db);
 app.use( addQRoutes);
 const editQRoutes = require('./routes/editQuestion')(db);
@@ -89,9 +91,6 @@ app.get('/viewQuestion', (req, res) => {
 // });
 app.get('/result', (req, res) => {
   res.render('result');
-});
-app.get('/endGame', (req, res) => {
-  res.render('endGame');
 });
 app.get('/startQuiz', (req, res) => {
   res.render('startQuiz');

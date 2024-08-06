@@ -65,8 +65,8 @@ module.exports = (db) => {
     });
   });
   
-  router.get('/endGame/:gameId', (req, res) => {
-    const gameId = req.params.gameId;
+  router.get('/endGame', (req, res) => {
+    const gameId = req.session.gameId;
     const query = `
       SELECT p.player_id, p.player_name, w.total_money
       FROM Game g
@@ -83,13 +83,14 @@ module.exports = (db) => {
         return res.status(404).send('No players found');
       }
       const winner = results[0];
-      res.render('congratulations', {
+      // End Session
+      req.session.playerData = null;
+      req.session.gameId = null;
+      res.render('endGame', {
         winnerName: winner.player_name,
         winnerId: winner.player_id,
         totalMoney: winner.total_money
       });
-      // End Session
-      req.session.playerData = null;
     });
   });
   
