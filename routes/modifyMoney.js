@@ -46,7 +46,6 @@ module.exports = (db) => {
 
     db.query(query, values, (err, result) => {
       if (err) throw err;
-      // Fetch the updated amount from the database after the operation
       const newQuery = 'SELECT total_money FROM Wallet WHERE player_id = ?';
       db.query(newQuery, [playerId], (err, results) => {
         if (err) throw err;
@@ -62,8 +61,6 @@ module.exports = (db) => {
 
   router.get('/gameDetails/:gameId', (req, res) => {
     const gameId = req.params.gameId;
-    // Assuming you fetch game and player data from the database here
-    // For simplicity, let's assume playerData is available in session
 
     if (!req.session.playerData) {
       return res.status(404).send('Player data not found');

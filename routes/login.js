@@ -45,6 +45,7 @@ module.exports = (db) => {
                 if (err) {
                     return next(err);
                 } else {
+                    // alert("See you again & Good-Bye");
                     return res.redirect('/homePage');
                 }
             });

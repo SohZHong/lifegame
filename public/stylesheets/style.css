@@ -51,6 +51,10 @@ button#homeBtn, button#endGame, .button, .player, #loginBtn{
   color: black;
 }
 
+.player {
+  margin:7px;
+}
+
 #p4 {
   position: absolute;
   top: 70px;
@@ -78,14 +82,12 @@ button#homeBtn, button#endGame, .button, .player, #loginBtn{
   right: 0;
   margin: 10px;
 }
-
-
-/* #endBtn {
-  top: 0%;
-  right: 0%;
-  margin: 10px; 
-} */
-
+ 
+.btn {
+  background-color: transparent;
+  border: none;
+  margin-left: 5px;
+}
 .block {
   text-align: center;
   margin: auto;
@@ -101,28 +103,19 @@ a {
 }
 
 input, .button{
-  /* min-height: 30px;
-  min-width: 100px; */
   max-width: 300px;
   height: 30px;
   width: 100%;
   margin: 10px;
-  
 }
 
 .button {
   height: 50px;
 }
 
-/* button#homeBtn, button#endGame {
-  max-width: 150px;
-  height: 35px;
-} */
-
 .dollar{
   width: 30px;
   height: 30px;
-  background-color: none;
 }
 
 .home , #login{
@@ -143,8 +136,15 @@ input, .button{
 .answer-item {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Space between radio button and label */
+  gap: 1rem;
 }
+
+.row {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
 
 .flip {
   background-color: transparent;

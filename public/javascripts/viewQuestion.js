@@ -25,9 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <button onclick="deleteQuestion(${question.question_id})">
               <img src="../../images/bin.png" alt="" class="delBtn">
             </button>
-            <button onclick="editQuestion(${question.question_id})">
-              <img class="modifyBtn" src="../../images/pencil.png" alt="">
-            </button>
           </div>
         </div>
         <div key=${index + "quesBlock"} class="quesBlock">
@@ -86,7 +83,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   
-  function editQuestion(question_id) {
-    window.location.href = `/editQuestion?questionid=${question_id}`;
-  }
   

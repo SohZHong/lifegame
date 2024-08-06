@@ -56,6 +56,8 @@ app.use('/', loginRoutes);
 
 // const Routes = require('./routes/');
 // app.use( Routes);
+const endgRoutes = require('./routes/endGame')(db);
+app.use(endgRoutes);
 const quizRoutes = require('./routes/quiz')(db);
 app.use(quizRoutes);
 const moneyRoutes = require('./routes/modifyMoney')(db);
@@ -64,10 +66,6 @@ const endGameRoutes = require('./routes/endGame')(db);
 app.use( endGameRoutes);
 const addQRoutes = require('./routes/addQuestion')(db);
 app.use( addQRoutes);
-const editQRoutes = require('./routes/editQuestion')(db);
-app.use( editQRoutes);
-
-
 const addPlayerRoutes = require('./routes/addPlayer')(db);
 app.use('/', addPlayerRoutes);
 

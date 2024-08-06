@@ -5,6 +5,7 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap")
     link(rel='stylesheet', href='/stylesheets/style.css')
+    
   body
     header
       .menu
@@ -31,27 +32,31 @@ html
       if player1
         #p1
           .player #{player1.playerName}
-          div(style="color:white;") Total Money: #{player1.totalMoney}
-          button(onclick=`window.location.href='/modifyMoney/${player1.playerId}'`)
-            img(src='../images/dollar.png', alt='updateWallet' class="dollar")
+          .row
+            div(style="color:white;") Total Money: #{player1.totalMoney}
+            button.btn(onclick=`window.location.href='/modifyMoney/${player1.playerId}'`)
+              img(src='../images/dollar.png', alt='updateWallet' class="dollar")
       if player2
         #p2
           .player #{player2.playerName}
-          div(style="color:white;") Total Money: #{player2.totalMoney}
-          button(onclick=`window.location.href='/modifyMoney/${player2.playerId}'`)
-            img(src='../images/dollar.png', alt='updateWallet' class="dollar")
+          .row 
+            div(style="color:white;") Total Money: #{player2.totalMoney}
+            button.btn(onclick=`window.location.href='/modifyMoney/${player2.playerId}'`)
+              img(src='../images/dollar.png', alt='updateWallet' class="dollar")
       if player3
         #p3
           .player #{player3.playerName}
-          div Total Money: #{player3.totalMoney}
-          button(onclick=`window.location.href='/modifyMoney/${player3.playerId}'`)
-            img(src='../images/dollar.png', alt='updateWallet' class="dollar")
+          .row
+            div Total Money: #{player3.totalMoney}
+            button.btn(onclick=`window.location.href='/modifyMoney/${player3.playerId}'`)
+              img(src='../images/dollar.png', alt='updateWallet' class="dollar")
       if player4
         #p4
           .player #{player4.playerName}
-          div Total Money: #{player4.totalMoney}
-          button(onclick=`window.location.href='/modifyMoney/${player4.playerId}'`)
-            img(src='../images/dollar.png', alt='updateWallet' class="dollar")
+          .row
+            div Total Money: #{player4.totalMoney}
+            button.btn(onclick=`window.location.href='/modifyMoney/${player4.playerId}'`)
+              img(src='../images/dollar.png', alt='updateWallet' class="dollar")
 
   main
   block content
